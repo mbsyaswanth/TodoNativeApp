@@ -22,6 +22,7 @@ class BottomNav extends Component {
   });
 
   render() {
+    const { setFilter } = this.props.store;
     return (
       <View style={this.styles.bottomNav}>
         <BottomNavigation active={this.state.active} hidden={false}>
@@ -29,19 +30,28 @@ class BottomNav extends Component {
             key="all"
             icon="list"
             label="all"
-            onPress={() => this.setState({ active: "all" })}
+            onPress={() => {
+              this.setState({ active: "all" });
+              setFilter("ALL");
+            }}
           />
           <BottomNavigation.Action
             key="active"
             icon="lock-open"
             label="Active"
-            onPress={() => this.setState({ active: "active" })}
+            onPress={() => {
+              this.setState({ active: "active" });
+              setFilter("ACTIVE");
+            }}
           />
           <BottomNavigation.Action
             key="completed"
             icon="check-circle"
             label="Completed"
-            onPress={() => this.setState({ active: "completed" })}
+            onPress={() => {
+              this.setState({ active: "completed" });
+              setFilter("COMPLETED");
+            }}
           />
         </BottomNavigation>
       </View>

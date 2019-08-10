@@ -3,8 +3,13 @@ import BottomNav from "./BottomNav";
 import { ActionButton } from "react-native-material-ui";
 import { View, StyleSheet, Text, SafeAreaView, StatusBar } from "react-native";
 import TodoItems from "./TodoItem";
+import { observer } from "mobx-react";
+import TodoStore from "../../stores/TodoStore";
+import ItemContainer from "./ItemContainer";
 
+@observer
 class TodoApp extends Component {
+  store = new TodoStore();
   styles = StyleSheet.create({
     container: {
       flex: 1
@@ -24,15 +29,21 @@ class TodoApp extends Component {
       marginTop: StatusBar.currentHeight
     }
   });
+  handleAdd = () => {
+    this.store.addTodo("first todo in native app");
+  };
   render() {
     return (
       <View style={this.styles.container}>
         <View style={this.styles.header}>
           <Text style={this.styles.headerText}>Todo App</Text>
         </View>
-        <TodoItems />
-        <ActionButton style={{ positionContainer: this.styles.add }} />
-        <BottomNav />
+        <ItemContainer store={this.store} />
+        <ActionButton
+          onPress={this.handleAdd}
+          style={{ positionContainer: this.styles.add }}
+        />
+        <BottomNav store={this.store} />
       </View>
     );
   }

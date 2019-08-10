@@ -1,32 +1,25 @@
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  TouchableNativeFeedback,
-  StyleSheet,
-  Alert
-} from "react-native";
-import { Checkbox, Icon } from "react-native-material-ui";
+import { View, StyleSheet, Alert } from "react-native";
+import { Checkbox, IconToggle, Icon } from "react-native-material-ui";
 
 class TodoItem extends Component {
-  state = {
-    isChecked: false
-  };
-
   styles = StyleSheet.create({
     item: {
-      flexDirection: "row"
+      flexDirection: "row",
+      alignItems: "center"
+    },
+    delete: {
+      padding: 5
     }
   });
 
   onCheck = () => {
-    this.setState({
-      isChecked: !this.state.isChecked
-    });
+    this.props.todo.toggleCompleted();
   };
 
   delete = () => {
-    alert("delete?");
+    // alert("delete?");
+    console.log("in alert");
     Alert.alert(
       "Warning!",
       "Do you really want to delete?",
@@ -36,25 +29,30 @@ class TodoItem extends Component {
           onPress: () => console.log("Cancel Pressed"),
           style: "cancel"
         },
-        { text: "OK", onPress: () => console.log("OK Pressed") }
+        { text: "Delete", onPress: () => this.props.delete(this.props.todo) }
       ],
       { cancelable: false }
     );
   };
 
   render() {
+    const { description, id, isCompleted } = this.props.todo;
     return (
-      <View style={this.styles.item}>
-        <Checkbox
-          label="I Agree"
-          value="agree"
-          checked={this.state.isChecked}
-          onCheck={this.onCheck}
-        />
-        <TouchableNativeFeedback onPress={this.delete}>
-          <Icon name="delete" />
-        </TouchableNativeFeedback>
-      </View>
+      <>
+        <View style={this.styles.item}>
+          <Checkbox
+            label={description}
+            value={id}
+            checked={isCompleted}
+            onCheck={this.onCheck}
+          />
+          <IconToggle
+            style={this.styles.delete}
+            onPress={this.delete}
+            name="delete"
+          />
+        </View>
+      </>
     );
   }
 }
