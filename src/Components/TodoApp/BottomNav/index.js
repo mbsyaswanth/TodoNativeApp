@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { BottomNavigation } from "react-native-material-ui";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { observer } from "mobx-react";
+
+@observer
 class BottomNav extends Component {
   state = {
     active: "all"

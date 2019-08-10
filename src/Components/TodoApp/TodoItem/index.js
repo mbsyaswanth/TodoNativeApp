@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Alert } from "react-native";
 import { Checkbox, IconToggle, Icon } from "react-native-material-ui";
+import { observer } from "mobx-react";
 
+@observer
 class TodoItem extends Component {
   styles = StyleSheet.create({
     item: {

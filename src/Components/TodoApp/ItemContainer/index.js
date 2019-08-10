@@ -10,6 +10,7 @@ class ItemContainer extends Component {
     return (
       <FlatList
         data={filteredList}
+        keyExtractor={item => item.id}
         renderItem={({ item }) => <TodoItem todo={item} delete={removeTodo} />}
       />
     );

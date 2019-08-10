@@ -6,6 +6,8 @@ import TodoItems from "./TodoItem";
 import { observer } from "mobx-react";
 import TodoStore from "../../stores/TodoStore";
 import ItemContainer from "./ItemContainer";
+import { observable } from "mobx";
+import EnterTodo from "./EnterTodo";
 
 @observer
 class TodoApp extends Component {
@@ -29,8 +31,12 @@ class TodoApp extends Component {
       marginTop: StatusBar.currentHeight
     }
   });
+
+  @observable addtodo = false;
+
   handleAdd = () => {
-    this.store.addTodo("first todo in native app");
+    this.addtodo = !this.addtodo;
+    //this.store.addTodo("first todo in native app");
   };
   render() {
     return (
@@ -38,7 +44,13 @@ class TodoApp extends Component {
         <View style={this.styles.header}>
           <Text style={this.styles.headerText}>Todo App</Text>
         </View>
-        <ItemContainer store={this.store} />
+
+        {this.addtodo ? (
+          <EnterTodo add={this.store.addTodo} />
+        ) : (
+          <ItemContainer store={this.store} />
+        )}
+
         <ActionButton
           onPress={this.handleAdd}
           style={{ positionContainer: this.styles.add }}
