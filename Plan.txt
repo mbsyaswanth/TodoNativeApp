@@ -1,0 +1,9 @@
+1) ui
+    [] bottom navigation - 20mins
+    [] floating button (+) 
+    [] todoItem with checkbox and delete
+    [] header
+    
+2) functionality
+    [] copy paste todo store from previous todo app
+    [] integrating it with this ui
