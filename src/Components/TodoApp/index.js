@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import BottomNav from "./BottomNav";
 import { ActionButton } from "react-native-material-ui";
 import { View, StyleSheet, Text, SafeAreaView, StatusBar } from "react-native";
+import TodoItems from "./TodoItem";
 
 class TodoApp extends Component {
   styles = StyleSheet.create({
@@ -29,7 +30,7 @@ class TodoApp extends Component {
         <View style={this.styles.header}>
           <Text style={this.styles.headerText}>Todo App</Text>
         </View>
-
+        <TodoItems />
         <ActionButton style={{ positionContainer: this.styles.add }} />
         <BottomNav />
       </View>

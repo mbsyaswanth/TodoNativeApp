@@ -1,8 +1,8 @@
 1) ui
-    [] bottom navigation - 20mins
-    [] floating button (+) 
-    [] todoItem with checkbox and delete
-    [] header
+    [x] bottom navigation - 20mins
+    [x] floating button (+) 
+    [*] todoItem with checkbox and delete
+    [x] header
     
 2) functionality
     [] copy paste todo store from previous todo app
