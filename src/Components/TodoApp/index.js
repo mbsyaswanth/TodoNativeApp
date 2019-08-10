@@ -46,7 +46,7 @@ class TodoApp extends Component {
         </View>
 
         {this.addtodo ? (
-          <EnterTodo add={this.store.addTodo} />
+          <EnterTodo add={this.store.addTodo} show={this.handleAdd} />
         ) : (
           <ItemContainer store={this.store} />
         )}
