@@ -14,7 +14,8 @@ class TodoApp extends Component {
   store = new TodoStore();
   styles = StyleSheet.create({
     container: {
-      flex: 1
+      flex: 1,
+      paddingBottom: 50
     },
     add: {
       bottom: 60
@@ -36,7 +37,6 @@ class TodoApp extends Component {
 
   handleAdd = () => {
     this.addtodo = !this.addtodo;
-    //this.store.addTodo("first todo in native app");
   };
   render() {
     return (
