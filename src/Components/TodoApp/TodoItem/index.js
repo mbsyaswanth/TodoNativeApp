@@ -4,7 +4,7 @@ import {
   StyleSheet,
   Alert,
   TouchableOpacity,
-  TouchableWithoutFeedback,
+  Vibration,
   TextInput,
   Text
 } from "react-native";
@@ -18,6 +18,7 @@ class TodoItem extends Component {
 
   @action.bound handleLongPress() {
     this.isEditing = true;
+    Vibration.vibrate(10);
     console.log("long press detected");
   }
 

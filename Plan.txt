@@ -1,9 +1,19 @@
 1) ui
     [x] bottom navigation - 20mins
     [x] floating button (+) 
-    [*] todoItem with checkbox and delete
+    [x] todoItem with checkbox and delete
     [x] header
     
 2) functionality
-    [] copy paste todo store from previous todo app
-    [] integrating it with this ui
+    [x] copy paste todo store from previous todo app
+    [x] integrating it with this ui
+
+
+Add login page with route
+
+    [] Login component (UI)
+    [] Add Route in Todo 
+    [] implement login functionality in store
+        [] promise should resolve only if correct details are entered
+        [] should show error msg using lightBox if wrong details are entered
+         
