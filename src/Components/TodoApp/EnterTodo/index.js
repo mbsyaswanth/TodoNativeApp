@@ -16,7 +16,9 @@ class EnterTodo extends Component {
   };
 
   handleSubmit = () => {
-    this.props.add(this.state.text);
+    if (this.state.text.trim() !== "") {
+      this.props.add(this.state.text);
+    }
     this.props.show();
   };
 
