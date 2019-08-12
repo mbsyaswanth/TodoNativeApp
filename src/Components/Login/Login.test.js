@@ -1,5 +1,6 @@
 import { render, fireEvent } from "react-native-testing-library";
-import { get } from "https";
+import React from "react";
+import Login from "./index";
 
 describe("Login", () => {
   test("should call function on login click", () => {
